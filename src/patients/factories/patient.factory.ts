@@ -4,8 +4,7 @@ import { PatientRepository } from "../repositories/patient.repository";
 import { PatientModel } from "../models/patient.model";
 
 export function PatientFactory() {
-  const patientModel = PatientModel;
-  const patientRepository = new PatientRepository(patientModel);
+  const patientRepository = new PatientRepository(PatientModel);
   const patientService = new PatientService(patientRepository);
   const patientController = new PatientController(patientService);
   return patientController;
