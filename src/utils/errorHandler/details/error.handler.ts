@@ -1,4 +1,4 @@
-import { PromiseError } from "./error.handler.type";
+import { PromiseError } from "../abstraction/error.handler.type";
 
 export function promiseError(error: unknown): PromiseError {
   return {

@@ -1,4 +1,4 @@
-import { Medicine } from "../models/medicine.model";
+import { Medicine } from "../../models/medicine.model";
 
 export interface IMedicineRepository {
   getAll(): Promise<Medicine[]>;

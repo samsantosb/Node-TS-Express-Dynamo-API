@@ -1,13 +1,13 @@
-import { ICustomError } from "../../utils/errorHandler/error.handler.type";
+import { CustomError } from "../../utils/errorHandler/abstraction/error.handler.type";
 import { fakeMedicines, fakeMedicine } from "./fake.medicine.data";
-import { IMedicineRepository } from "./../repositories/medicine.repository.interface";
-import { IMedicineService } from "./../services/medicine.service.interface";
-import { IMedicine } from "../models/medicine.model.interface";
-import { promiseError } from "../../utils/errorHandler/error.handler";
+import { IMedicineRepository } from "../repositories/abstraction/medicine.repository.interface";
+import { IMedicineService } from "../services/abstraction/medicine.service.interface";
+import { Medicine } from "../models/medicine.model";
+import { promiseError } from "../../utils/errorHandler/details/error.handler";
 export class FakeMedicineService implements IMedicineService {
   constructor(private readonly medicineRepository: IMedicineRepository) {}
 
-  async getAll(): Promise<IMedicine[] | ICustomError> {
+  async getAll(): Promise<Medicine[] | CustomError> {
     try {
       return Promise.resolve(fakeMedicines);
     } catch (error) {
@@ -15,7 +15,7 @@ export class FakeMedicineService implements IMedicineService {
     }
   }
 
-  async getById(id: string): Promise<IMedicine | ICustomError> {
+  async getById(id: string): Promise<Medicine | CustomError> {
     try {
       return Promise.resolve(fakeMedicine);
     } catch (error) {
@@ -23,7 +23,7 @@ export class FakeMedicineService implements IMedicineService {
     }
   }
 
-  async create(medicine: IMedicine): Promise<IMedicine | ICustomError> {
+  async create(medicine: Medicine): Promise<Medicine | CustomError> {
     try {
       return Promise.resolve(fakeMedicine);
     } catch (error) {
@@ -31,7 +31,7 @@ export class FakeMedicineService implements IMedicineService {
     }
   }
 
-  async update(medicine: IMedicine): Promise<IMedicine | ICustomError> {
+  async update(medicine: Medicine): Promise<Medicine | CustomError> {
     try {
       return Promise.resolve(fakeMedicine);
     } catch (error) {
@@ -39,7 +39,7 @@ export class FakeMedicineService implements IMedicineService {
     }
   }
 
-  async delete(id: string): Promise<string | ICustomError> {
+  async delete(id: string): Promise<string | CustomError> {
     try {
       return Promise.resolve(`Medicine with id ${id} deleted`);
     } catch (error) {

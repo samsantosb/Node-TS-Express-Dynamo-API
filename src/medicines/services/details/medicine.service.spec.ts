@@ -1,10 +1,12 @@
 import { faker } from "@faker-js/faker";
-import { fakeMedicine, fakeMedicines } from "./../__mocks__/fake.medicine.data";
-import { FakeMedicineRepository } from "../__mocks__/fake.medicine.repository";
+import {
+  fakeMedicine,
+  fakeMedicines,
+} from "../../__mocks__/fake.medicine.data";
+import { FakeMedicineRepository } from "../../__mocks__/fake.medicine.repository";
 import { MedicineService } from "./medicine.service";
 import { jest, describe, it, expect } from "@jest/globals";
-import { fakeMedicineModel } from "../__mocks__/fake.medicine.model";
-
+import { fakeMedicineModel } from "../../__mocks__/fake.medicine.model";
 
 const medicineRepository = new FakeMedicineRepository(fakeMedicineModel);
 const medicineService = new MedicineService(medicineRepository);
@@ -18,7 +20,12 @@ describe("MedicineService", () => {
     it("it should return promiseError", async () => {
       jest.spyOn(medicineRepository, "getAll").mockRejectedValueOnce("Error");
       const error = await medicineService.getAll();
-      expect(error).toEqual({ promiseError: { message: "Error during the Database request", error: "Error" } });
+      expect(error).toEqual({
+        promiseError: {
+          message: "Error during the Database request",
+          error: "Error",
+        },
+      });
     });
   });
   describe("getById", () => {
@@ -29,7 +36,12 @@ describe("MedicineService", () => {
     it("it should return promiseError", async () => {
       jest.spyOn(medicineRepository, "getById").mockRejectedValueOnce("Error");
       const error = await medicineService.getById(faker.datatype.uuid());
-      expect(error).toEqual({ promiseError: { message: "Error during the Database request", error: "Error" } });
+      expect(error).toEqual({
+        promiseError: {
+          message: "Error during the Database request",
+          error: "Error",
+        },
+      });
     });
   });
   describe("create", () => {
@@ -40,7 +52,12 @@ describe("MedicineService", () => {
     it("it should return promiseError", async () => {
       jest.spyOn(medicineRepository, "create").mockRejectedValueOnce("Error");
       const error = await medicineService.create(fakeMedicine);
-      expect(error).toEqual({ promiseError: { message: "Error during the Database request", error: "Error" } });
+      expect(error).toEqual({
+        promiseError: {
+          message: "Error during the Database request",
+          error: "Error",
+        },
+      });
     });
   });
   describe("update", () => {
@@ -51,7 +68,12 @@ describe("MedicineService", () => {
     it("it should return promiseError", async () => {
       jest.spyOn(medicineRepository, "update").mockRejectedValueOnce("Error");
       const error = await medicineService.update(fakeMedicine);
-      expect(error).toEqual({ promiseError: { message: "Error during the Database request", error: "Error" } });
+      expect(error).toEqual({
+        promiseError: {
+          message: "Error during the Database request",
+          error: "Error",
+        },
+      });
     });
   });
   describe("delete", () => {
@@ -63,7 +85,12 @@ describe("MedicineService", () => {
     it("it should return promiseError", async () => {
       jest.spyOn(medicineRepository, "delete").mockRejectedValueOnce("Error");
       const error = await medicineService.delete(fakeMedicine.id);
-      expect(error).toEqual({ promiseError: { message: "Error during the Database request", error: "Error" } });
+      expect(error).toEqual({
+        promiseError: {
+          message: "Error during the Database request",
+          error: "Error",
+        },
+      });
     });
   });
 });

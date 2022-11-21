@@ -1,5 +1,5 @@
-import { CustomError } from "../../utils/errorHandler/error.handler.type";
-import { Medicine } from "../models/medicine.model";
+import { CustomError } from "../../../utils/errorHandler/abstraction/error.handler.type";
+import { Medicine } from "../../models/medicine.model";
 
 export interface IMedicineService {
   getAll(): Promise<Medicine[] | CustomError>;

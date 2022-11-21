@@ -1,6 +1,6 @@
 import { ModelType } from "dynamoose/dist/General";
-import { Medicine, MedModel } from "../models/medicine.model";
-import { IMedicineRepository } from "./medicine.repository.interface";
+import { Medicine, MedModel } from "../../models/medicine.model";
+import { IMedicineRepository } from "../abstraction/medicine.repository.interface";
 export class MedicineRepository implements IMedicineRepository {
   constructor(private readonly medicineModel: MedModel) {}
 

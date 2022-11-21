@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { Medicine } from "../models/medicine.model.interface";
+import { Medicine } from "../models/medicine.model";
 
 //crete a fake medcine
 export const fakeMedicine = {

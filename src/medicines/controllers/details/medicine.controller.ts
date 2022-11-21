@@ -1,6 +1,6 @@
-import { IMedicineController } from "./medicine.controller.interface";
-import { IMedicineService } from "./../services/medicine.service.interface";
-import { StatusCode } from "../../utils/statusCode/status.code";
+import { IMedicineController } from "../abstraction/medicine.controller.interface";
+import { IMedicineService } from "../../services/abstraction/medicine.service.interface";
+import { StatusCode } from "../../../utils/statusCode/status.code";
 import { Request, Response } from "express";
 export class MedicineController implements IMedicineController {
   constructor(private readonly medicineService: IMedicineService) {}

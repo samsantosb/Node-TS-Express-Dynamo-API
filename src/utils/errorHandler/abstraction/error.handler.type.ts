@@ -1,8 +1,8 @@
-export interface PromiseError {
+export type PromiseError = {
   promiseError: {
     message: string;
     error: unknown;
   };
-}
+};
 
 export type CustomError = PromiseError;

@@ -1,8 +1,8 @@
-import { CustomError } from "../../utils/errorHandler/error.handler.type";
-import { IMedicineService } from "./medicine.service.interface";
-import { Medicine } from "../models/medicine.model";
-import { IMedicineRepository } from "./../repositories/medicine.repository.interface";
-import { promiseError } from "../../utils/errorHandler/error.handler";
+import { CustomError } from "../../../utils/errorHandler/abstraction/error.handler.type";
+import { IMedicineService } from "../abstraction/medicine.service.interface";
+import { Medicine } from "../../models/medicine.model";
+import { IMedicineRepository } from "../../repositories/abstraction/medicine.repository.interface";
+import { promiseError } from "../../../utils/errorHandler/details/error.handler";
 export class MedicineService implements IMedicineService {
   constructor(private readonly medicineRepository: IMedicineRepository) {}
   async getAll(): Promise<Medicine[] | CustomError> {

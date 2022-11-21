@@ -1,5 +1,5 @@
 import { fakeMedicines, fakeMedicine } from "./fake.medicine.data";
-import { IMedicineRepository } from "./../repositories/medicine.repository.interface";
+import { IMedicineRepository } from "../repositories/abstraction/medicine.repository.interface";
 import { Medicine, MedModel } from "../models/medicine.model";
 
 export class FakeMedicineRepository implements IMedicineRepository {
