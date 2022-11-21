@@ -1,4 +1,4 @@
-import { ICustomError } from "./../../utils/errorHandler/error.handler.interface";
+import { ICustomError } from "../../utils/errorHandler/error.handler.type";
 import { fakeMedicines, fakeMedicine } from "./fake.medicine.data";
 import { IMedicineRepository } from "./../repositories/medicine.repository.interface";
 import { IMedicineService } from "./../services/medicine.service.interface";

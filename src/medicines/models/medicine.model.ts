@@ -1,5 +1,6 @@
 import { Schema, model } from "dynamoose";
-import { IMedicineModel } from "./medicine.model.interface";
+import { ModelType } from "dynamoose/dist/General";
+import { Item } from "dynamoose/dist/Item";
 
 const MedicineSchema = new Schema({
   id: {
@@ -27,5 +28,15 @@ const MedicineSchema = new Schema({
     required: true,
   },
 });
+export class Medicine extends Item {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  quantity: number;
+  brand: string;
+}
 
-export const MedicineModel: IMedicineModel = model("Medicine", MedicineSchema);
+export type MedModel = ModelType<Medicine>;
+
+export const MedicineModel: MedModel = model("Medicine", MedicineSchema);

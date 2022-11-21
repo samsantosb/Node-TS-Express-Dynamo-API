@@ -1,4 +1,4 @@
-import { IMedicineModel, Medicine } from "./../models/medicine.model.interface";
+import { Medicine, MedModel } from "./../models/medicine.model";
 import { fakeMedicine, fakeMedicines } from "./fake.medicine.data";
 
 export class FakeMedicineModel {
@@ -25,5 +25,4 @@ export class FakeMedicineModel {
   }
 }
 
-export const fakeMedicineModel =
-  new FakeMedicineModel() as unknown as IMedicineModel;
+export const fakeMedicineModel = new FakeMedicineModel() as unknown as MedModel;

@@ -1,26 +1,26 @@
-import { fakeMedicines, fakeMedicine } from './fake.medicine.data';
-import { IMedicineRepository } from './../repositories/medicine.repository.interface';
-import { IMedicine, IMedicineModel } from '../models/medicine.model.interface';
+import { fakeMedicines, fakeMedicine } from "./fake.medicine.data";
+import { IMedicineRepository } from "./../repositories/medicine.repository.interface";
+import { Medicine, MedModel } from "../models/medicine.model";
 
 export class FakeMedicineRepository implements IMedicineRepository {
-  constructor(private readonly medicineModel: IMedicineModel) {}
-  getAll(): Promise<IMedicine[]> {
+  constructor(private readonly medicineModel: MedModel) {}
+  getAll(): Promise<Medicine[]> {
     return Promise.resolve(fakeMedicines);
   }
 
-  getById(id: string): Promise<IMedicine> {
+  getById(id: string): Promise<Medicine> {
     return Promise.resolve(fakeMedicine);
   }
 
-  create(medicine: IMedicine): Promise<IMedicine> {
+  create(medicine: Medicine): Promise<Medicine> {
     return Promise.resolve(fakeMedicine);
   }
 
-  update(medicine: IMedicine): Promise<IMedicine> {
+  update(medicine: Medicine): Promise<Medicine> {
     return Promise.resolve(fakeMedicine);
   }
 
   delete(id: string): Promise<string> {
     return Promise.resolve(`Medicine with id ${id} deleted`);
   }
-};
+}

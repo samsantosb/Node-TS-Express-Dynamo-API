@@ -1,11 +1,11 @@
-import { ICustomError } from "./../../utils/errorHandler/error.handler.interface";
+import { CustomError } from "../../utils/errorHandler/error.handler.type";
 import { IMedicineService } from "./medicine.service.interface";
-import { IMedicine } from "../models/medicine.model.interface";
+import { Medicine } from "../models/medicine.model";
 import { IMedicineRepository } from "./../repositories/medicine.repository.interface";
 import { promiseError } from "../../utils/errorHandler/error.handler";
 export class MedicineService implements IMedicineService {
   constructor(private readonly medicineRepository: IMedicineRepository) {}
-  async getAll(): Promise<IMedicine[] | ICustomError> {
+  async getAll(): Promise<Medicine[] | CustomError> {
     try {
       const medicines = await this.medicineRepository.getAll();
       return medicines;
@@ -14,7 +14,7 @@ export class MedicineService implements IMedicineService {
     }
   }
 
-  async getById(id: string): Promise<IMedicine | ICustomError> {
+  async getById(id: string): Promise<Medicine | CustomError> {
     try {
       const medicine = await this.medicineRepository.getById(id);
       return medicine;
@@ -23,7 +23,7 @@ export class MedicineService implements IMedicineService {
     }
   }
 
-  async create(medicine: IMedicine): Promise<IMedicine | ICustomError> {
+  async create(medicine: Medicine): Promise<Medicine | CustomError> {
     try {
       const createdMedicine = await this.medicineRepository.create(medicine);
       return createdMedicine;
@@ -32,7 +32,7 @@ export class MedicineService implements IMedicineService {
     }
   }
 
-  async update(medicine: IMedicine): Promise<IMedicine | ICustomError> {
+  async update(medicine: Medicine): Promise<Medicine | CustomError> {
     try {
       const updatedMedicine = await this.medicineRepository.update(medicine);
       return updatedMedicine;
@@ -41,7 +41,7 @@ export class MedicineService implements IMedicineService {
     }
   }
 
-  async delete(id: string): Promise<string | ICustomError> {
+  async delete(id: string): Promise<string | CustomError> {
     try {
       const deletedMedicine = await this.medicineRepository.delete(id);
       return deletedMedicine;
