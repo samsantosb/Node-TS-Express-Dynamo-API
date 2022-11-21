@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { fakeMedicine, fakeMedicines } from "./../__mocks__/fake.medicine.data";
-import { fakeMedicineModel } from "./../__mocks__/fake.medicine.model";
-import { MedicineRepository } from "./../repositories/medicine.repository";
+import { fakeMedicine, fakeMedicines } from "../__mocks__/fake.medicine.data";
+import { fakeMedicineModel } from "../__mocks__/fake.medicine.model";
+import { MedicineRepository } from "./medicine.repository";
 import { jest, describe, it, expect } from "@jest/globals";
 
 const medicineRepository = new MedicineRepository(fakeMedicineModel);

@@ -10,4 +10,6 @@ export class Medicine extends Item {
   brand: string;
 }
 
+export interface IMedicine extends Medicine {}
+
 export interface IMedicineModel extends ModelType<Medicine> {}
