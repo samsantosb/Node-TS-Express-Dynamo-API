@@ -11,39 +11,39 @@ export class FakeMedicineService implements IMedicineService {
     try {
       return Promise.resolve(fakeMedicines);
     } catch (error) {
-      return Promise.reject(promiseError(error));
+      return Promise.resolve(promiseError(error));
     }
   }
 
-  async getById(id: string): Promise<IMedicine> {
+  async getById(id: string): Promise<IMedicine | ICustomError> {
     try {
       return Promise.resolve(fakeMedicine);
     } catch (error) {
-      return Promise.reject(promiseError(error));
+      return Promise.resolve(promiseError(error));
     }
   }
 
-  async create(medicine: IMedicine): Promise<IMedicine> {
+  async create(medicine: IMedicine): Promise<IMedicine | ICustomError> {
     try {
       return Promise.resolve(fakeMedicine);
     } catch (error) {
-      return Promise.reject(promiseError(error));
+      return Promise.resolve(promiseError(error));
     }
   }
 
-  async update(medicine: IMedicine): Promise<IMedicine> {
+  async update(medicine: IMedicine): Promise<IMedicine | ICustomError> {
     try {
       return Promise.resolve(fakeMedicine);
     } catch (error) {
-      return Promise.reject(promiseError(error));
+      return Promise.resolve(promiseError(error));
     }
   }
 
-  async delete(id: string): Promise<string> {
+  async delete(id: string): Promise<string | ICustomError> {
     try {
       return Promise.resolve(`Medicine with id ${id} deleted`);
     } catch (error) {
-      return Promise.reject(promiseError(error));
+      return Promise.resolve(promiseError(error));
     }
   }
 }

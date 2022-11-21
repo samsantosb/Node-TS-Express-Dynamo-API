@@ -5,12 +5,12 @@ import { IMedicineRepository } from "./../repositories/medicine.repository.inter
 import { promiseError } from "../../utils/errorHandler/error.handler";
 export class MedicineService implements IMedicineService {
   constructor(private readonly medicineRepository: IMedicineRepository) {}
-  async getAll(): Promise<IMedicine[]> {
+  async getAll(): Promise<IMedicine[] | ICustomError> {
     try {
       const medicines = await this.medicineRepository.getAll();
       return medicines;
     } catch (error) {
-      throw promiseError(error);
+      return promiseError(error);
     }
   }
 
