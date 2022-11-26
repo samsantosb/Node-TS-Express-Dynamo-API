@@ -1,4 +1,5 @@
-interface IMedicine {
+export interface IMedicine {
+  id?: string;
   name: string;
   description: string;
   price: string;
