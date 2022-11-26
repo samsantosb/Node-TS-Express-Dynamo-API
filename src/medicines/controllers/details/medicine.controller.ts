@@ -6,12 +6,12 @@ export class MedicineController implements IMedicineController {
   constructor(private readonly medicineService: IMedicineService) {}
 
   async getAll(req: Request, res: Response): Promise<void> {
-    const medcines = await this.medicineService.getAll();
-    if ("promiseError" in medcines) {
-      res.status(StatusCode.INTERNAL_SERVER_ERROR).json(medcines);
+    const medicine = await this.medicineService.getAll();
+    if ("promiseError" in medicine) {
+      res.status(StatusCode.INTERNAL_SERVER_ERROR).json(medicine);
       return;
     }
-    res.status(StatusCode.OK).json(medcines);
+    res.status(StatusCode.OK).json(medicine);
   }
 
   async getById(req: Request, res: Response): Promise<void> {
