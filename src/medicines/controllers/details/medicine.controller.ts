@@ -2,6 +2,7 @@ import { IMedicineController } from "../abstraction/medicine.controller.interfac
 import { IMedicineService } from "../../services/abstraction/medicine.service.interface";
 import { StatusCode } from "../../../utils/statusCode/status.code";
 import { Request, Response } from "express";
+import { MedicineRequestDTO } from "../../dtos/medicine.request.dto";
 export class MedicineController implements IMedicineController {
   constructor(private readonly medicineService: IMedicineService) {}
 
@@ -24,7 +25,10 @@ export class MedicineController implements IMedicineController {
   }
 
   async create(req: Request, res: Response): Promise<void> {
-    const medicine = await this.medicineService.create(req.body);
+    const body = req.body;
+    const medicineDTO = new MedicineRequestDTO(body);
+
+    const medicine = await this.medicineService.create(medicineDTO);
     if ("promiseError" in medicine) {
       res.status(StatusCode.INTERNAL_SERVER_ERROR).json(medicine);
       return;
@@ -33,7 +37,10 @@ export class MedicineController implements IMedicineController {
   }
 
   async update(req: Request, res: Response): Promise<void> {
-    const medicine = await this.medicineService.update(req.body);
+    const body = req.body;
+    const medicineDTO = new MedicineRequestDTO(body);
+
+    const medicine = await this.medicineService.update(medicineDTO);
     if ("promiseError" in medicine) {
       res.status(StatusCode.INTERNAL_SERVER_ERROR).json(medicine);
       return;
